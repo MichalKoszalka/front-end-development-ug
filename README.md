@@ -1,1 +1,2 @@
-# front-end-development-ug
+# Frontend Development
+# Michał Koszałka
