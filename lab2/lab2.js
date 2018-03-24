@@ -48,11 +48,11 @@ var add = function (a, b) {
 // deklaracja funkcji - wywołanie może być wcześniej
 // deklaracje funkcji i zmiennych są wynoszone na górę pliku - javascript hoisting
 
-console.log(multiply(3, 4))
+console.log(multiply(3, 4));
 
  function multiply(a,b) {
      return a * b;
- };
+ }
 
  console.log(typeof add);
  console.log(typeof multiply);
