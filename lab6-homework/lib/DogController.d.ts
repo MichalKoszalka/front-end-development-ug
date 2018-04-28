@@ -1,7 +1,7 @@
 import { Dog } from "./Dog";
 import { Breed } from "./Breed";
 export declare class DogController {
-    allDogs: Dog[];
+    private allDogs;
     addDog(dog: any): void;
     removeDog(dog: any): void;
     findByBreed(breed: any): Dog[];

@@ -14,24 +14,24 @@ export class Dog {
         this.intelligence = 1;
     }
 
-    introduce () {
+    public introduce () {
         console.log(`I am ${this.name}`);
     }
 
-    bark() {
+    public bark() {
         console.log("wow wow");
     }
 
-    feed() {
+    public feed() {
         console.log("yummy");
         this.weight++
     }
 
-    canRun() {
+    public canRun() {
         return this.weight < 2 * this.startWeight;
     }
 
-    run() {
+    public run() {
        if (this.weight >= (2 * this.startWeight)) {
         this.bark();
         } else {
@@ -42,18 +42,18 @@ export class Dog {
         }
     }
 
-    walk() {
+    public walk() {
         console.log("walking");
         if(this.weight > this.startWeight) {
             this.weight--;
         }
     }
 
-    train() {
+    public train() {
         this.exp = this.exp + (1 * this.intelligence);
     }
 
-    sit() {
+    public sit() {
         if(this.exp > 0) {
             console.log("siting");
         } else {
@@ -61,11 +61,11 @@ export class Dog {
         } 
     }
 
-    canDoTheTrick() {
+    public canDoTheTrick() {
         return this.exp > 5;
     }
 
-    doTheTrick() {
+    public doTheTrick() {
         if(this.exp > 5) {
             console.log("doing trick")
         } else {

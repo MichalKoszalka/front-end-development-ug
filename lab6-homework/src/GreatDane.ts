@@ -9,11 +9,11 @@ export class GreatDane extends Dog {
         this.intelligence = 3;
     }
 
-    canRun() {
+    public canRun() {
         return this.weight < (1.5 * this.startWeight);
     }
 
-    run() {
+    public run() {
         if (this.weight >= (1.5 * this.startWeight)) {
             this.bark();
          } else {

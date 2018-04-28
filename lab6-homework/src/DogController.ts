@@ -2,41 +2,41 @@ import { Dog } from "./Dog";
 import { Breed } from "./Breed";
 
 export class DogController {
-    public allDogs: Dog[] = [];
+    private allDogs: Dog[] = [];
 
-    addDog(dog) {
+    public addDog(dog) {
         this.allDogs.push(dog);
     }
 
-    removeDog(dog) {
+    public removeDog(dog) {
         this.allDogs.splice(this.allDogs.indexOf(dog), 1);
     }
 
-    findByBreed(breed): Dog[] {
+    public findByBreed(breed): Dog[] {
         return this.allDogs.filter(dog => dog.breed === breed);
     }
 
-    findAllBreed(): Breed[] {
+    public findAllBreed(): Breed[] {
         return this.allDogs.map(dog => dog.breed);
     }
 
-    findHeavierThan(weight): Dog[] {
+    public findHeavierThan(weight): Dog[] {
         return this.allDogs.filter(dog => dog.weight > weight);
     }
 
-    findTallerThan(height): Dog[] {
+    public findTallerThan(height): Dog[] {
         return this.allDogs.filter(dog => dog.height > height);
     }
 
-    findOverWeightDogs(): Dog[] {
+    public findOverWeightDogs(): Dog[] {
         return this.allDogs.filter(dog => dog.weight > 1.5 * dog.startWeight);
     }
 
-    trainAll() {
+    public trainAll() {
         return this.allDogs.forEach(dog => dog.train());
     }
 
-    findTrainedDogs(): Dog[] {
+    public findTrainedDogs(): Dog[] {
         return this.allDogs.filter(dog => dog.canDoTheTrick());
     }
 
