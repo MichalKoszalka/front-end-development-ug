@@ -1,0 +1,8 @@
+<h2>My Dogs</h2>
+<ul class="dogs">
+  <li *ngFor="let dog of dogs" (click)="onSelect(dog)" [class.selected]="dog === selectedDog">
+        <span class="badge">{{dog.id}}</span> {{dog.name}}
+  </li>
+</ul>
+
+<app-dog-detail [dog]="selectedDog"></app-dog-detail>
