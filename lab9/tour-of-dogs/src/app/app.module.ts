@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { DogsComponent } from './dogs/dogs.component';
-import { DogDetailComponent } from './dog-detail/dog-detail.component';
-import { DogSearchComponent } from './dog-search/dog-search.component';
+import { DogsComponent } from './components/dogs/dogs.component';
+import { DogDetailComponent } from './components/dog-detail/dog-detail.component';
+import { DogSearchComponent } from './components/dog-search/dog-search.component';
+import { DogService } from './services/dog.service';
+import { AddDogComponent } from './components/add-dog/add-dog.component';
 
 
 @NgModule({
@@ -13,14 +15,15 @@ import { DogSearchComponent } from './dog-search/dog-search.component';
     AppComponent,
     DogsComponent,
     DogDetailComponent,
-    DogSearchComponent
+    DogSearchComponent,
+    AddDogComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

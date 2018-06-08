@@ -1,6 +1,7 @@
 <div *ngIf="dog">
-
+  <br/>
   <h2>{{ dog.name | uppercase }} Details</h2>
+  <button (click)="deleteDog(dog)" type="submit">Delete dog</button>
   <div><span>id: </span>{{dog.id}}</div>
   <div>
     <label>name:
@@ -17,5 +18,4 @@
       <input [(ngModel)]="dog.height" placeholder="height"/>
     </label>
   </div>
-
 </div>

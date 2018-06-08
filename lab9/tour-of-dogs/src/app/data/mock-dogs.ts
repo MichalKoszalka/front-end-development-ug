@@ -1,4 +1,4 @@
-import { Dog } from './dog';
+import { Dog } from '../model/dog';
 
 
 export const DOGS: Dog[] = [

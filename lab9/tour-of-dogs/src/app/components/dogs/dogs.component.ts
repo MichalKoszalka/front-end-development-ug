@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DOGS } from '../mock-dogs';
-import { Dog } from '../dog';
+import { DOGS } from '../../data/mock-dogs';
+import { Dog } from '../../model/dog';
+import { DogService } from '../../services/dog.service';
 
 @Component({
   selector: 'app-dogs',
@@ -9,23 +10,36 @@ import { Dog } from '../dog';
 })
 export class DogsComponent implements OnInit {
 
-  dogs = DOGS;
+  dogs: Dog[];
   filteredDogs = [];
   selectedDog: Dog;
 
-  constructor() {
+  constructor(private dogService: DogService) {
+    this.loadDogs();
+  }
+
+  private loadDogs() {
+    this.dogs = this.dogService.findAll();
     this.filteredDogs = this.dogs;
   }
 
   ngOnInit() {
   }
 
-  onSelect(dog: Dog): void {
+  onSelect(dog: Dog) {
     this.selectedDog = dog;
   }
 
   onDogsFiltered(dogs: Dog[]) {
     this.filteredDogs = dogs;
+  }
+
+  onDogAdded() {
+    this.loadDogs();
+  }
+
+  onDogDeleted() {
+    this.loadDogs();   
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Dog } from '../dog';
+import { Dog } from '../../model/dog';
 
 @Component({
   selector: 'app-dog-search',

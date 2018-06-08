@@ -1,0 +1,33 @@
+<div>
+  <form [formGroup]="myForm" (ngSubmit)="addDog(myForm.value)">
+
+    <h2>Add new dog</h2>
+    <div>
+      <label>name:
+        <input type="text" [formControl]="myForm.controls['name']" />
+        <div *ngIf="name.hasError('required')">Name required</div>
+        <div *ngIf="name.hasError('minlength')">Name has to be at least 3 characters long</div>
+        <div *ngIf="name.hasError('nameWithX')">Name has to end with X</div>
+      </label>
+    </div>
+    <div>
+      <label>weight:
+        <input type="number" [formControl]="myForm.controls['weight']" />
+        <div *ngIf="weight.hasError('required')">Weight required</div>
+        <div *ngIf="weight.hasError('min')">Dog has to weight more</div>
+        <div *ngIf="weight.hasError('max')">Dog has to weight less</div>
+      </label>
+    </div>
+    <div>
+      <label>height:
+        <input type="number" [formControl]="myForm.controls['height']" />
+        <div *ngIf="height.hasError('required')">Height required</div>
+        <div *ngIf="height.hasError('min')">Dog has to be taller</div>
+        <div *ngIf="height.hasError('max')">Dog has to be shorter</div>
+      </label>
+    </div>
+
+    <button [disabled]="!myForm.valid || !myForm.touched" type="submit">Add</button>
+  </form>
+
+</div>
