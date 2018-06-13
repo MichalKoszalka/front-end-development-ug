@@ -1,0 +1,21 @@
+<div *ngIf="dog">
+  <br/>
+  <h2>{{ dog.name | uppercase }} Details</h2>
+  <button (click)="deleteDog(dog)" type="submit">Delete dog</button>
+  <div><span>id: </span>{{dog.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="dog.name" placeholder="name"/>
+    </label>
+  </div>
+  <div>
+    <label>weight:
+      <input [(ngModel)]="dog.weight" placeholder="weight"/>
+    </label>
+  </div>
+  <div>
+    <label>height:
+      <input [(ngModel)]="dog.height" placeholder="height"/>
+    </label>
+  </div>
+</div>
