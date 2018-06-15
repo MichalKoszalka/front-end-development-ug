@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class DogService {
 
-  apiUrl = 'localhost:3000/';
+  apiUrl = 'http://localhost:3000/dogs';
   dogs: Observable<Dog[]>;
   lastId: number;
 
@@ -19,12 +19,20 @@ export class DogService {
     return this.http.get<Dog[]>(this.apiUrl);
   }
 
-  add(dog: Dog) {
-    this.http.post(this.apiUrl, dog).subscribe();
+  add(dog: Dog): Observable<Object> {
+    return this.http.post(this.apiUrl, dog);
   }
 
-  delete(dog: Dog) {
-    this.http.delete(this.apiUrl+dog.id).subscribe();
+  update(dog: Dog): Observable<Object> {
+    return this.http.put(this.apiUrl, dog);
+  }
+
+  delete(dogId: number): Observable<Object>  {
+    return this.http.delete(`${this.apiUrl}/${dogId}`);;
+  }
+
+  findOne(id: number): Observable<Dog> {
+    return this.http.get<Dog>(`${this.apiUrl}/${id}`);
   }
 
 }

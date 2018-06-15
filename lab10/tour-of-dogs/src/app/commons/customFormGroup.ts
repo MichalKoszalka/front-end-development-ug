@@ -1,4 +1,5 @@
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import { Dog } from "../model/dog";
 
 export class CustomFormBuilder {
 

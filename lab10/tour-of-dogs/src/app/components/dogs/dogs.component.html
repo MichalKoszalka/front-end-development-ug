@@ -4,5 +4,3 @@
     <span class="badge" (click)="onSelect(dog)">{{dog.id}}</span> {{dog.name}}
   </li>
 </ul>
-<app-add-dog (dogAdded)="onDogAdded($event)"></app-add-dog>
-<app-dog-detail (dogDeleted)="onDogDeleted($event)" [dog]="selectedDog"></app-dog-detail>

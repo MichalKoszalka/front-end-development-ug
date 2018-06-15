@@ -1,21 +1,29 @@
-<div *ngIf="dog">
-  <br/>
-  <h2>{{ dog.name | uppercase }} Details</h2>
   <button (click)="deleteDog(dog)" type="submit">Delete dog</button>
-  <div><span>id: </span>{{dog.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="dog.name" placeholder="name"/>
-    </label>
-  </div>
-  <div>
-    <label>weight:
-      <input [(ngModel)]="dog.weight" placeholder="weight"/>
-    </label>
-  </div>
-  <div>
-    <label>height:
-      <input [(ngModel)]="dog.height" placeholder="height"/>
-    </label>
-  </div>
-</div>
+  <form [formGroup]="myForm" (ngSubmit)="updateDog(myForm.value)">
+
+    <div>
+      <label>name:
+        <input type="text" [formControl]="myForm.controls['name']" />
+        <div *ngIf="name.hasError('required')">Name required</div>
+        <div *ngIf="name.hasError('minlength')">Name has to be at least 3 characters long</div>
+        <div *ngIf="name.hasError('nameWithX')">Name has to end with X</div>
+      </label>
+    </div>
+    <div>
+      <label>weight:
+        <input type="number" [formControl]="myForm.controls['weight']" />
+        <div *ngIf="weight.hasError('required')">Weight required</div>
+        <div *ngIf="weight.hasError('min')">Dog has to weight more</div>
+        <div *ngIf="weight.hasError('max')">Dog has to weight less</div>
+      </label>
+    </div>
+    <div>
+      <label>height:
+        <input type="number" [formControl]="myForm.controls['height']" />
+        <div *ngIf="height.hasError('required')">Height required</div>
+        <div *ngIf="height.hasError('min')">Dog has to be taller</div>
+        <div *ngIf="height.hasError('max')">Dog has to be shorter</div>
+      </label>
+    </div>
+    <button [disabled]="!myForm.valid" type="submit">Update</button>
+  </form>

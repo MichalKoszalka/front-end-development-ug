@@ -9,7 +9,13 @@ import { DogSearchComponent } from './components/dog-search/dog-search.component
 import { DogService } from './services/dog.service';
 import { AddDogComponent } from './components/add-dog/add-dog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: 'add-dog', component: AddDogComponent },
+  { path: 'all-dogs', component: DogsComponent },
+  { path: 'dog-detail/:id', component: DogDetailComponent },  
+];
 
 @NgModule({
   declarations: [
@@ -23,7 +29,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true }
+    )
   ],
   providers: [DogService],
   bootstrap: [AppComponent]
