@@ -4,7 +4,8 @@
       <app-dog-search [dogs]="dogs" (dogsFiltered)="onDogsFiltered($event)"></app-dog-search>
       <ul class="list-group">
         <li *ngFor="let dog of filteredDogs" class="list-group-item" (click)="onSelect(dog)">
-          <span class="badge badge-pill badge-info">{{dog.id}}</span>{{dog.name}}
+          <span class="badge badge-pill badge-info">{{dog.id}} </span> 
+          <span class="badge badge-pill badge-light"> {{dog.name}}</span>
         </li>
       </ul>
     </div>
