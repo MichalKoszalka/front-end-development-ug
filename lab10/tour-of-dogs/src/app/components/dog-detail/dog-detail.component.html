@@ -1,29 +1,43 @@
-  <button (click)="deleteDog(dog)" type="submit">Delete dog</button>
-  <form [formGroup]="myForm" (ngSubmit)="updateDog(myForm.value)">
+  <div class="form-group">
+    <form [formGroup]="myForm" (ngSubmit)="updateDog(myForm.value)">
 
     <div>
       <label>name:
-        <input type="text" [formControl]="myForm.controls['name']" />
+        <input class="form-control" type="text" [formControl]="myForm.controls['name']" />
+        <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger form-control">
         <div *ngIf="name.hasError('required')">Name required</div>
         <div *ngIf="name.hasError('minlength')">Name has to be at least 3 characters long</div>
         <div *ngIf="name.hasError('nameWithX')">Name has to end with X</div>
+        </div>
       </label>
     </div>
     <div>
       <label>weight:
-        <input type="number" [formControl]="myForm.controls['weight']" />
+        <input class="form-control" type="number" [formControl]="myForm.controls['weight']" />
+        <div
+        *ngIf="weight.invalid && (weight.dirty || weight.touched)"
+        class="alert alert-danger form-control">
         <div *ngIf="weight.hasError('required')">Weight required</div>
         <div *ngIf="weight.hasError('min')">Dog has to weight more</div>
         <div *ngIf="weight.hasError('max')">Dog has to weight less</div>
+      </div>        
       </label>
     </div>
     <div>
       <label>height:
-        <input type="number" [formControl]="myForm.controls['height']" />
+        <input class="form-control" type="number" [formControl]="myForm.controls['height']" />
+        <div
+            *ngIf="height.invalid && (height.dirty || height.touched)"
+            class="alert alert-danger form-control">
         <div *ngIf="height.hasError('required')">Height required</div>
         <div *ngIf="height.hasError('min')">Dog has to be taller</div>
         <div *ngIf="height.hasError('max')">Dog has to be shorter</div>
+      </div>        
       </label>
     </div>
-    <button [disabled]="!myForm.valid" type="submit">Update</button>
+    <button class="btn btn-primary" [disabled]="!myForm.valid" type="submit">Update</button>
+    <button class="btn btn-danger" (click)="deleteDog(dog)" type="submit">Delete dog</button>
   </form>
+  </div>

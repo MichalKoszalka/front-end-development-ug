@@ -21,7 +21,8 @@ export class AddDogComponent implements OnInit {
     this.myForm = CustomFormBuilder.build(formBuilder);
     this.name = this.myForm.controls['name'];
     this.height = this.myForm.controls['height'];
-    this.weight = this.myForm.controls['weight'];    
+    this.weight = this.myForm.controls['weight'];
+    this.myForm.updateValueAndValidity();    
    }
 
   ngOnInit() {

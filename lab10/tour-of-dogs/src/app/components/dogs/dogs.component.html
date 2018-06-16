@@ -1,6 +1,12 @@
-<app-dog-search [dogs]="dogs" (dogsFiltered)="onDogsFiltered($event)"></app-dog-search>
-<ul class="dogs">
-  <li *ngFor="let dog of filteredDogs" [class.selected]="dog === selectedDog">
-    <span class="badge" (click)="onSelect(dog)">{{dog.id}}</span> {{dog.name}}
-  </li>
-</ul>
+<div class="row">
+  <div class="d-flex align-items-center col-sm">
+    <div class="d-flex flex-column">
+      <app-dog-search [dogs]="dogs" (dogsFiltered)="onDogsFiltered($event)"></app-dog-search>
+      <ul class="list-group">
+        <li *ngFor="let dog of filteredDogs" class="list-group-item" (click)="onSelect(dog)">
+          <span class="badge badge-pill badge-info">{{dog.id}}</span>{{dog.name}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
